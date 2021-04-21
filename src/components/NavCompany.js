@@ -1,9 +1,13 @@
 import React from "react";
 
-const NavCompany = ({ name, handleClick, index }) => {
+const NavCompany = ({ name, handleClick, index, dataIndex }) => {
   return (
-    <div className="btn">
-      <button onClick={() => handleClick(index)}>{name}</button>
+    <div className="btn-item">
+      <button
+        className={`btn ${index === dataIndex && "active"}`}
+        onClick={() => handleClick(index)}>
+        {name}
+      </button>
     </div>
   );
 };

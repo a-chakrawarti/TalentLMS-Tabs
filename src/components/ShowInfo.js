@@ -12,7 +12,9 @@ const ShowInfo = ({ jobInfo }) => {
         {duties.map((duty, index) => {
           return (
             <div className="points" key={index}>
-              <FaAngleDoubleRight className="marker" />
+              <span className="marker">
+                <FaAngleDoubleRight />
+              </span>
               <span className="info">{duty}</span>
             </div>
           );

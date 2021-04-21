@@ -9,7 +9,7 @@ function App() {
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [index, setIndex] = useState(0);
+  const [dataIndex, setDataIndex] = useState(0);
 
   const fetchData = async () => {
     try {
@@ -33,11 +33,11 @@ function App() {
     return <Loading />;
   }
 
-  const jobInfo = data[index];
+  const jobInfo = data[dataIndex];
 
   const handleClick = (idx) => {
     console.log(idx);
-    setIndex(idx);
+    setDataIndex(idx);
   };
 
   return (
@@ -50,6 +50,7 @@ function App() {
         <div className="btn-container">
           {data.map((item, index) => (
             <NavCompany
+              dataIndex={dataIndex}
               key={item.id}
               name={item.company}
               handleClick={handleClick}
@@ -62,7 +63,7 @@ function App() {
         </div>
       </section>
       <div className="flex-center">
-        <button>MORE INFO</button>
+        <button className="more-info-btn">MORE INFO</button>
       </div>
     </main>
   );
