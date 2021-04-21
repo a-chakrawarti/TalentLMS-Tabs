@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       fetchData();
-    }, 2000);
+    }, 0);
   }, []);
 
   if (loading) {
@@ -42,17 +42,26 @@ function App() {
 
   return (
     <main>
-      <div>Experience</div>
-      {data.map((item, index) => (
-        <NavCompany
-          key={item.id}
-          name={item.company}
-          handleClick={handleClick}
-          index={index}
-        />
-      ))}
-      <ShowInfo jobInfo={jobInfo} />
-      <div>
+      <div className="title flex-center fd-col">
+        <h2>Experience</h2>
+        <div className="underline"></div>
+      </div>
+      <section>
+        <div className="btn-container">
+          {data.map((item, index) => (
+            <NavCompany
+              key={item.id}
+              name={item.company}
+              handleClick={handleClick}
+              index={index}
+            />
+          ))}
+        </div>
+        <div className="profile-info">
+          <ShowInfo jobInfo={jobInfo} />
+        </div>
+      </section>
+      <div className="flex-center">
         <button>MORE INFO</button>
       </div>
     </main>
